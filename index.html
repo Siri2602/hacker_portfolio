@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGENT SURYA // Hacker Mission Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- ===== MATRIX RAIN CANVAS ===== -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- ===== BOOT SCREEN ===== -->
+    <div id="bootScreen" class="screen active">
+        <div class="boot-container">
+            <pre class="ascii-art">
+ ███████╗██╗   ██╗██████╗ ██╗   ██╗ █████╗
+ ██╔════╝██║   ██║██╔══██╗╚██╗ ██╔╝██╔══██╗
+ ███████╗██║   ██║██████╔╝ ╚████╔╝ ███████║
+ ╚════██║██║   ██║██╔══██╗  ╚██╔╝  ██╔══██║
+ ███████║╚██████╔╝██║  ██║   ██║   ██║  ██║
+ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝  ╚═╝  ╚═╝
+            </pre>
+            <div class="boot-text" id="bootText"></div>
+            <button class="glitch-btn" id="initBtn" style="display:none;" onclick="startMission1()">
+                <span class="glitch-text" data-text="[ INITIALIZE ]">[ INITIALIZE ]</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MISSION 1: TERMINAL ACCESS ===== -->
+    <div id="mission1Screen" class="screen">
+        <div class="mission-header">
+            <span class="mission-tag">MISSION 01</span>
+            <h2 class="glitch-text" data-text="TERMINAL ACCESS">TERMINAL ACCESS</h2>
+            <p class="mission-desc">Crack the riddle to gain access to Agent SURYA's dossier.</p>
+        </div>
+        <div class="terminal-box">
+            <div class="terminal-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="terminal-title">root@surya-portfolio ~ %</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="m1Output">
+                    <p class="t-line">[SYSTEM] Access restricted. Solve the riddle:</p>
+                    <p class="t-line highlight">"I have cities but no houses, forests but no trees, water but no fish. What am I?"</p>
+                    <p class="t-line dim">Hint: Think about what represents the world on paper.</p>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="prompt">❯</span>
+                    <input type="text" id="m1Input" class="terminal-input" placeholder="Type your answer..." autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <p class="attempt-counter" id="m1Attempts"></p>
+    </div>
+
+    <!-- ===== DOSSIER (unlocked after mission 1) ===== -->
+    <div id="dossierScreen" class="screen">
+        <nav class="hacker-nav">
+            <span class="nav-logo">⟨SURYA/&gt;</span>
+            <div class="nav-links">
+                <a href="#about" class="nav-link active">ABOUT</a>
+                <a href="#skills" class="nav-link">SKILLS</a>
+                <a href="#education" class="nav-link">EDUCATION</a>
+                <a href="#projects" class="nav-link locked" id="projectsNavLink">🔒 PROJECTS</a>
+                <a href="#contact" class="nav-link locked" id="contactNavLink">🔒 CONTACT</a>
+            </div>
+            <div class="mission-progress">
+                <span class="mp-dot completed" title="Mission 1"></span>
+                <span class="mp-dot" id="mpDot2" title="Mission 2"></span>
+                <span class="mp-dot" id="mpDot3" title="Mission 3"></span>
+            </div>
+        </nav>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <span class="section-tag">FILE://ABOUT</span>
+                <h2>MASINA SIRI SURYA</h2>
+            </div>
+            <div class="about-grid">
+                <div class="info-card">
+                    <div class="info-label">CODENAME</div>
+                    <div class="info-value typewriter" id="aboutName">Agent Surya</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">DOB</div>
+                    <div class="info-value">26 / 08 / 2007</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">STATUS</div>
+                    <div class="info-value pulse-green">● ACTIVE</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">CURRENT OP</div>
+                    <div class="info-value">2nd Year B.Tech — IT</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">INSTITUTION</div>
+                    <div class="info-value">SRKR Engineering College, Bhimavaram</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">CLEARANCE</div>
+                    <div class="info-value">LEVEL 5 — FULL STACK</div>
+                </div>
+            </div>
+            <div class="profile-links">
+                <a href="https://www.linkedin.com/in/siri-surya-566023366" target="_blank" class="profile-btn linkedin">
+                    <span>▶ LinkedIn</span>
+                </a>
+                <a href="https://github.com/Siri2602" target="_blank" class="profile-btn github">
+                    <span>▶ GitHub</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <span class="section-tag">FILE://SKILLS</span>
+                <h2>ARSENAL</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>⟨ Languages /⟩</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="90">C</span>
+                        <span class="skill-tag" data-level="92">JavaScript</span>
+                        <span class="skill-tag" data-level="88">Python</span>
+                        <span class="skill-tag" data-level="85">Java</span>
+                        <span class="skill-tag" data-level="80">SQL</span>
+                        <span class="skill-tag" data-level="87">DSA</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⟨ Front-End /⟩</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="93">React.js</span>
+                        <span class="skill-tag" data-level="95">HTML5</span>
+                        <span class="skill-tag" data-level="92">CSS3</span>
+                        <span class="skill-tag" data-level="85">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⟨ Back-End /⟩</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="88">Node.js</span>
+                        <span class="skill-tag" data-level="85">Express.js</span>
+                        <span class="skill-tag" data-level="82">Django</span>
+                        <span class="skill-tag" data-level="87">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⟨ Databases /⟩</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="85">MongoDB</span>
+                        <span class="skill-tag" data-level="83">MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⟨ Tools & DevOps /⟩</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="90">Git / GitHub</span>
+                        <span class="skill-tag" data-level="75">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⟨ Soft Skills /⟩</h3>
+                    <div class="skill-tags soft">
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Technical Communication</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Mentorship</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section">
+            <div class="section-header">
+                <span class="section-tag">FILE://EDUCATION</span>
+                <h2>TRAINING LOG</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024 — 2028</span>
+                        <h3>B.Tech — Information Technology</h3>
+                        <p>SRKR Engineering College, Bhimavaram</p>
+                        <span class="badge">IN PROGRESS</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 — 2024</span>
+                        <h3>Intermediate</h3>
+                        <p>Percentage: <strong class="accent">95.2%</strong></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Completed 2022</span>
+                        <h3>SSC (10th)</h3>
+                        <p>Percentage: <strong class="accent">95%</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION 2: DECODE TO UNLOCK PROJECTS -->
+        <section id="mission2Section" class="section mission-section">
+            <div class="mission-header">
+                <span class="mission-tag">MISSION 02</span>
+                <h2 class="glitch-text" data-text="DECRYPT THE INTEL">DECRYPT THE INTEL</h2>
+                <p class="mission-desc">Decode this Caesar cipher (shift 3) to unlock the PROJECTS vault.</p>
+            </div>
+            <div class="cipher-box">
+                <div class="cipher-display" id="cipherText">FRGH EUHDNHU</div>
+                <p class="cipher-hint">Each letter is shifted forward by 3. A→D, B→E ... Decode it!</p>
+                <div class="terminal-input-row">
+                    <span class="prompt">❯</span>
+                    <input type="text" id="m2Input" class="terminal-input" placeholder="Enter decoded message..." autocomplete="off" />
+                </div>
+                <p class="attempt-counter" id="m2Attempts"></p>
+            </div>
+        </section>
+
+        <!-- PROJECTS (locked until mission 2) -->
+        <section id="projects" class="section locked-section">
+            <div class="lock-overlay" id="projectsLock">
+                <span class="lock-icon">🔒</span>
+                <p>Complete Mission 2 to unlock</p>
+            </div>
+            <div class="section-header">
+                <span class="section-tag">FILE://PROJECTS</span>
+                <h2>DEPLOYED OPS</h2>
+            </div>
+            <div class="projects-grid">
+                <a href="https://siri2602.github.io/pro-todo-app/" target="_blank" class="project-card">
+                    <div class="project-icon">📝</div>
+                    <h3>To-Do App</h3>
+                    <p>Task management with priority system, search & filter, progress tracking, and local storage.</p>
+                    <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                    <span class="project-link">▶ LAUNCH DEMO</span>
+                </a>
+                <a href="https://siri2602.github.io/calculator-app/" target="_blank" class="project-card">
+                    <div class="project-icon">🧮</div>
+                    <h3>Calculator App</h3>
+                    <p>Stylish calculator with dark mode, keyboard support, sound effects, and animated buttons.</p>
+                    <div class="project-tech"><span>HTML</span><span>CSS Grid</span><span>JavaScript</span></div>
+                    <span class="project-link">▶ LAUNCH DEMO</span>
+                </a>
+                <a href="https://siri2602.github.io/weather-app/" target="_blank" class="project-card">
+                    <div class="project-icon">🌦️</div>
+                    <h3>Weather App</h3>
+                    <p>Live weather using OpenWeather API with dynamic backgrounds, icons, and error handling.</p>
+                    <div class="project-tech"><span>API</span><span>Async JS</span><span>JSON</span></div>
+                    <span class="project-link">▶ LAUNCH DEMO</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- MISSION 3: PASSCODE TO UNLOCK CONTACT -->
+        <section id="mission3Section" class="section mission-section" style="display:none;">
+            <div class="mission-header">
+                <span class="mission-tag">MISSION 03</span>
+                <h2 class="glitch-text" data-text="CRACK THE VAULT">CRACK THE VAULT</h2>
+                <p class="mission-desc">Enter the 4-digit passcode to access CONTACT intel.</p>
+            </div>
+            <div class="passcode-box">
+                <div class="passcode-hint">
+                    <p>🔑 Clue: "The year the agent was born, reversed."</p>
+                </div>
+                <div class="passcode-inputs" id="passcodeInputs">
+                    <input type="text" maxlength="1" class="passcode-digit" data-idx="0" autocomplete="off" />
+                    <input type="text" maxlength="1" class="passcode-digit" data-idx="1" autocomplete="off" />
+                    <input type="text" maxlength="1" class="passcode-digit" data-idx="2" autocomplete="off" />
+                    <input type="text" maxlength="1" class="passcode-digit" data-idx="3" autocomplete="off" />
+                </div>
+                <p class="attempt-counter" id="m3Attempts"></p>
+            </div>
+        </section>
+
+        <!-- CONTACT (locked until mission 3) -->
+        <section id="contact" class="section locked-section">
+            <div class="lock-overlay" id="contactLock">
+                <span class="lock-icon">🔒</span>
+                <p>Complete Mission 3 to unlock</p>
+            </div>
+            <div class="section-header">
+                <span class="section-tag">FILE://CONTACT</span>
+                <h2>SECURE CHANNEL</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-label">EMAIL</span>
+                    <a href="mailto:sirisurya2007@gmail.com" class="contact-value">sirisurya2007@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-label">PHONE</span>
+                    <a href="tel:+918121163943" class="contact-value">+91 8121163943</a>
+                </div>
+                <div class="contact-card">
+                    <span class="contact-icon">💼</span>
+                    <span class="contact-label">LINKEDIN</span>
+                    <a href="https://www.linkedin.com/in/siri-surya-566023366" target="_blank" class="contact-value">linkedin.com/in/siri-surya</a>
+                </div>
+                <div class="contact-card">
+                    <span class="contact-icon">🐙</span>
+                    <span class="contact-label">GITHUB</span>
+                    <a href="https://github.com/Siri2602" target="_blank" class="contact-value">github.com/Siri2602</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="hacker-footer">
+            <p>⟨/⟩ Designed & built by <strong>MASINA SIRI SURYA</strong> — All missions completed.</p>
+            <p class="footer-sub">Connection secured. Session encrypted. 🛡️</p>
+        </footer>
+    </div>
+
+    <!-- ===== NOTIFICATION ===== -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
