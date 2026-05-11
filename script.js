@@ -3,7 +3,7 @@
    ============================================================ */
 
 // ─── SOUND EFFECTS ────────────────────────────────────────────
-const AudioCtx = window.AudioContext || window.webkitAudioContext;
+const AudioCtx = window.AudioContext || window.webkitAudioContext; 
 let audioCtx;
 function ensureAudio() { if (!audioCtx) audioCtx = new AudioCtx(); }
 function playTone(freq, duration = 0.08, type = 'square') {
